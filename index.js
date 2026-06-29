@@ -7,6 +7,7 @@ const data = require("./data.json");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/images", express.static("public/images"));
 
 app.listen(port, () => {
   console.log(`Server has started on port ${port}`);
@@ -14,4 +15,8 @@ app.listen(port, () => {
 
 app.get("/", (req, res) => {
   res.render("home", { data });
+});
+
+app.get("/students", (req, res) => {
+  res.render("students", { data });
 });
