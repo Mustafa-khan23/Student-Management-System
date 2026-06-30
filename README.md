@@ -24,10 +24,23 @@ This project is a beginner-friendly server-side rendered app that displays stude
 
 ## Project Structure
 
-- `index.js` - Main Express server and routes
-- `data.json` - Student data source
-- `views/` - EJS templates for home, students, details, and error pages
-- `public/` - Static assets such as CSS and images
+```
+Student-Management-System
+├── index.js          # Main Express server and routes
+├── data.json         # Student data source
+├── views             # EJS templates
+│   ├── detail.ejs
+│   ├── error.ejs
+│   ├── home.ejs
+│   ├── students.ejs
+│   └── partials
+│       ├── footer.ejs
+│       └── navbar.ejs
+└── public            # Static assets
+    ├── css
+    │   └── style.css
+    └── images
+```
 
 ## Installation
 
@@ -54,3 +67,7 @@ This project is a beginner-friendly server-side rendered app that displays stude
 ## Notes
 
 This project is intentionally simple and is designed for learning Express + EJS rendering with static data.
+
+---
+
+created by mustafa
