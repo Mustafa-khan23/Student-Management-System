@@ -1,0 +1,94 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8fafc;
+  color: #1f2937;
+}
+
+.navbar-brand {
+  letter-spacing: 0.02em;
+}
+
+.hero-section {
+  position: relative;
+  min-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding: 2rem;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.section-heading h2 {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.student-card,
+.student-detail-card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.student-card .card-img-top {
+  height: 220px;
+  object-fit: cover;
+}
+
+.student-detail-card .card-img-top {
+  height: 260px;
+  object-fit: cover;
+}
+
+.detail-list .list-group-item {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.footer {
+  text-align: center;
+  padding: 1.5rem 1rem 2rem;
+  color: #64748b;
+}

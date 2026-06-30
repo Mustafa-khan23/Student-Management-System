@@ -9,38 +9,51 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
-
+    <link rel="stylesheet" href="/css/style.css" />
     <title>Student | <%= usr.name %></title>
   </head>
   <body>
     <%- include("partials/navbar") %>
-    <div class="card mx-auto" style="width: 18rem">
-      <% let redImage; %> 
-      <% let Img1 = "/images/male.png"; %> 
-      <% let Img2 ="/images/female.png"; %>
 
-      <% if(usr.gender == "Female") { %>
-        <% redImage = Img2 %>
-        <% } else { %>
-            <% redImage = Img1; %>
-        <% } %>
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+          <% let redImage = usr.gender === "Male" ? "/images/male.png" :
+          "/images/female.png"; %> <% let pronoun = usr.gender === "Male" ? "he"
+          : "she"; %>
 
-        <% let pronouns; %>
-        <% if(usr.gender == "Male") { %>
-        <% pronouns = "he" %>
-        <% } else { %>
-            <% pronouns = "she" %>
-        <% } %>    
-      <img src="<%= redImage %>" class="card-img-top" alt="pfp" />
-      <div class="card-body" >
-        <h5 class="card-title"><%= usr.name %></h5>
-        <p class="card-text">
-          <%= usr.name %>&nbsp;<%= pronouns %>&nbsp;is from <%= usr.course %> Department with a percentage of <%= usr.marks %>% <br>
-          <h6>City: <%= usr.city %></h6>
-          <a href="#">+91&nbsp;<%= usr.phone %></a>
-          <h6>Email: <%= usr.email %></h6>
-        </p>
-        <a href="#" class="btn btn-primary">Contact</a>
+          <div class="card student-detail-card">
+            <img
+              src="<%= redImage %>"
+              class="card-img-top"
+              alt="Student profile"
+            />
+            <div class="card-body">
+              <h2 class="card-title"><%= usr.name %></h2>
+              <p class="card-text">
+                <%= usr.name %> is from the <%= usr.course %> department and
+                scored <%= usr.marks %>% marks.
+              </p>
+              <ul class="list-group list-group-flush detail-list">
+                <li class="list-group-item">
+                  <strong>Age:</strong> <%= usr.age %>
+                </li>
+                <li class="list-group-item">
+                  <strong>City:</strong> <%= usr.city %>
+                </li>
+                <li class="list-group-item">
+                  <strong>Email:</strong> <%= usr.email %>
+                </li>
+                <li class="list-group-item">
+                  <strong>Phone:</strong> +91 <%= usr.phone %>
+                </li>
+              </ul>
+              <a href="/students" class="btn btn-primary mt-3"
+                >Back to students</a
+              >
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

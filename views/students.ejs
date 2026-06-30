@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Students | List</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -10,49 +10,42 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
-    <style>
-        .card-img-top { height: 200px; object-fit: cover; }
-        .card { display: flex; flex-direction: column; }
-        .card-body { flex: 1 1 auto; }
-    </style>
-</head>
-<body>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
     <%- include("partials/navbar") %>
 
-    <div class="container my-4">
-        <div class="row g-4">
-            <% for (const student of data) { %>
-                <div class="col-12 col-md-6 col-lg-4 d-flex">
-                    <div class="card w-100">
-                        <% let redImage; %>
-                        <% let Img1 = "/images/male.png"; %>
-                        <% let Img2 = "/images/female.png"; %>
+    <div class="container py-5">
+      <div class="section-heading text-center mb-4">
+        <h2>Student Directory</h2>
+        <p class="text-muted">Explore the current student list and open each profile for more details.</p>
+      </div>
 
-                        <% if (student.gender === "Male") { %>
-                            <% redImage = Img1; %>
-                        <% } else { %>
-                            <% redImage = Img2; %>
-                        <% } %>
+      <div class="row g-4">
+        <% for (const student of data) { %>
+          <div class="col-12 col-md-6 col-lg-4 d-flex">
+            <div class="card student-card w-100">
+              <% let redImage = student.gender === "Male" ? "/images/male.png" : "/images/female.png"; %>
 
-                        <img src="<%= redImage %>" alt="Student" class="card-img-top" />
-                        <div class="card-body">
-                            <h5 class="card-title"><%= student.name %></h5>
-                            <p class="card-text">
-                                This student belongs to <%= student.course %> with last year percentage <%= student.marks %>%
-                            </p>
-                            <a href="/students/<%= student.id %>" class="btn btn-primary">Show details</a>
-                        </div>
-                    </div>
-                </div>
-            <% } %>
-        </div>
+              <img src="<%= redImage %>" alt="Student" class="card-img-top" />
+              <div class="card-body">
+                <h5 class="card-title"><%= student.name %></h5>
+                <p class="card-text">
+                  <%= student.course %> • <%= student.marks %>% marks
+                </p>
+                <a href="/students/<%= student.id %>" class="btn btn-primary">Show details</a>
+              </div>
+            </div>
+          </div>
+        <% } %>
+      </div>
     </div>
 
-    <%-include("partials/footer") %>
+    <%- include("partials/footer") %>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
-</body>
+  </body>
 </html>

@@ -2,35 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Students | Home</title>
-    <style>
-      #hero-section {
-        width: 100%;
-        height: 100vh;
-      }
-    </style>
-
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <%- include("partials/navbar") %>
-    <div id="hero-section">
-      <video
-        autoplay
-        muted
-        loop
-        playsinline
-        style="width: 100%; height: 100%; object-fit: cover"
-      >
+
+    <section class="hero-section">
+      <video autoplay muted loop playsinline class="hero-video">
         <source src="/images/hero-section.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-    </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Student Management System</h1>
+        <p>
+          Browse student profiles, explore academic details, and manage
+          information in a simple server-rendered experience.
+        </p>
+        <div class="hero-actions">
+          <a href="/students" class="btn btn-light btn-lg">View Students</a>
+          <span class="badge bg-light text-dark"
+            ><%= data.length %> students listed</span
+          >
+        </div>
+      </div>
+    </section>
 
     <%- include("partials/footer") %>
 

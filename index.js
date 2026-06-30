@@ -3,7 +3,6 @@ const app = express();
 const port = 3000;
 const path = require("path");
 const data = require("./data.json");
-const e = require("express");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -22,16 +21,13 @@ app.get("/students", (req, res) => {
   res.render("students", { data });
 });
 
-data.forEach((e) => {
-  console.log(e.name);
-});
 app.get("/students/:id", (req, res) => {
   const id = Number(req.params.id);
-
   const usr = data.find((student) => student.id === id);
 
   if (!usr) {
     return res.status(404).render("error");
   }
+
   res.render("detail", { usr });
 });
